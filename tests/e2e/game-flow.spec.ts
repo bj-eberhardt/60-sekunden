@@ -7,6 +7,7 @@ import {
   seedGameState,
   selectFirstOfferedTask,
   setRangeValue,
+  simulateDocumentVisibility,
   startTwoRoundGame,
   waitForPersistedGameStateCleared,
   waitForTimerNumber,
@@ -160,6 +161,45 @@ test('countdown continues after refresh instead of restarting', async ({ page })
     expect(timerAfterReload?.remainingMs).toBeLessThan(remainingBeforeReload);
     expect(timerAfterReload?.remainingMs).toBeLessThan(60_000);
     expect(timerNumberAfterReload).toBeLessThanOrEqual(timerNumberBeforeReload);
+  });
+});
+
+test('countdown pauses while the tab is in the background', async ({ page }) => {
+  let timerNumberBeforeTabSwitch = 0;
+
+  await test.step('Open a running countdown', async () => {
+    await seedCountdownGameState(page, {
+      endAt: Date.now() + 58_000,
+      remainingMs: 58_000,
+      turnNumber: 1,
+      targetRounds: 2,
+    });
+    await page.goto('/timer');
+
+    await expect(byTestId(page, 'countdown-page')).toBeVisible();
+    await waitForTimerNumber(page, /5[7-8]/);
+    timerNumberBeforeTabSwitch = Number(await byTestId(page, 'timer-number').textContent());
+  });
+
+  await test.step('Switch away and keep the remaining time paused', async () => {
+    await simulateDocumentVisibility(page, true);
+    await page.waitForTimeout(2_500);
+
+    const timerWhileHidden = await readPersistedTimer(page);
+
+    expect(timerWhileHidden?.paused).toBe(true);
+    expect(Math.ceil((timerWhileHidden?.remainingMs ?? 0) / 1000)).toBeGreaterThanOrEqual(
+      timerNumberBeforeTabSwitch - 1,
+    );
+
+    await simulateDocumentVisibility(page, false);
+  });
+
+  await test.step('Resume from the paused remaining time', async () => {
+    await expect(byTestId(page, 'countdown-page')).toBeVisible();
+    const timerNumberAfterTabSwitch = Number(await byTestId(page, 'timer-number').textContent());
+
+    expect(timerNumberAfterTabSwitch).toBeGreaterThanOrEqual(timerNumberBeforeTabSwitch - 1);
   });
 });
 

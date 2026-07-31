@@ -31,6 +31,7 @@ export async function startTwoRoundGame(page: Page) {
   await expect(page).toHaveURL('/round');
   await expect(byTestId(page, 'task-selection-page')).toBeVisible();
   await expect(byTestId(page, 'round-progress-label')).toHaveText('Runde 1 von 2');
+  await waitForPersistedRoundSelection(page, 1);
 }
 
 export async function selectFirstOfferedTask(page: Page) {
@@ -234,6 +235,20 @@ export async function readPersistedTimer(page: Page) {
 
 export async function waitForTimerNumber(page: Page, expected: string | RegExp) {
   await expect(byTestId(page, 'timer-number')).toHaveText(expected);
+}
+
+export async function simulateDocumentVisibility(page: Page, hidden: boolean) {
+  await page.evaluate((nextHidden) => {
+    Object.defineProperty(document, 'hidden', {
+      configurable: true,
+      get: () => nextHidden,
+    });
+    Object.defineProperty(document, 'visibilityState', {
+      configurable: true,
+      get: () => (nextHidden ? 'hidden' : 'visible'),
+    });
+    document.dispatchEvent(new Event('visibilitychange'));
+  }, hidden);
 }
 
 export type SeedGamePhase = 'task-selection' | 'countdown' | 'feedback';
