@@ -39,6 +39,10 @@ export function CountdownScreen() {
   useCountdownAudioPart(audioPart);
 
   useEffect(() => {
+    if (document.hidden) {
+      return;
+    }
+
     if (!state.timer.paused && state.timer.endAt) {
       return;
     }
@@ -46,6 +50,30 @@ export function CountdownScreen() {
     if (selectedTask && state.timer.remainingMs > 0) {
       dispatch({ type: 'resume-timer', now: Date.now() });
     }
+  }, [dispatch, selectedTask, state.timer.endAt, state.timer.paused, state.timer.remainingMs]);
+
+  useEffect(() => {
+    function syncTimerWithVisibility() {
+      if (!selectedTask) {
+        return;
+      }
+
+      if (document.hidden) {
+        if (!state.timer.paused && state.timer.endAt) {
+          dispatch({ type: 'pause-timer', now: Date.now() });
+        }
+        return;
+      }
+
+      if (state.timer.paused && state.timer.remainingMs > 0) {
+        dispatch({ type: 'resume-timer', now: Date.now() });
+      }
+    }
+
+    document.addEventListener('visibilitychange', syncTimerWithVisibility);
+    syncTimerWithVisibility();
+
+    return () => document.removeEventListener('visibilitychange', syncTimerWithVisibility);
   }, [dispatch, selectedTask, state.timer.endAt, state.timer.paused, state.timer.remainingMs]);
 
   useEffect(() => {

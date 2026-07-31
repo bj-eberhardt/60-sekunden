@@ -31,6 +31,7 @@ export async function startTwoRoundGame(page: Page) {
   await expect(page).toHaveURL('/round');
   await expect(byTestId(page, 'task-selection-page')).toBeVisible();
   await expect(byTestId(page, 'round-progress-label')).toHaveText('Runde 1 von 2');
+  await waitForPersistedRoundSelection(page, 1);
 }
 
 export async function selectFirstOfferedTask(page: Page) {
