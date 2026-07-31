@@ -237,6 +237,20 @@ export async function waitForTimerNumber(page: Page, expected: string | RegExp) 
   await expect(byTestId(page, 'timer-number')).toHaveText(expected);
 }
 
+export async function simulateDocumentVisibility(page: Page, hidden: boolean) {
+  await page.evaluate((nextHidden) => {
+    Object.defineProperty(document, 'hidden', {
+      configurable: true,
+      get: () => nextHidden,
+    });
+    Object.defineProperty(document, 'visibilityState', {
+      configurable: true,
+      get: () => (nextHidden ? 'hidden' : 'visible'),
+    });
+    document.dispatchEvent(new Event('visibilitychange'));
+  }, hidden);
+}
+
 export type SeedGamePhase = 'task-selection' | 'countdown' | 'feedback';
 
 export async function seedGameState(page: Page, phase: SeedGamePhase) {
