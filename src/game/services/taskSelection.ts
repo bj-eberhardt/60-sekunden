@@ -9,11 +9,15 @@ const oldestCandidatePoolSize = 5;
 export function selectOfferedTasks(
   catalog: GameTask[],
   players: [Player, Player],
+  activePlayerIndex: 0 | 1,
   recentlyOfferedTaskIds: string[],
 ): [GameTask, GameTask, GameTask] {
   const offeredTasks = moodOrder.map((mood) => {
     const candidates = catalog.filter(
-      (task) => task.enabled && task.mood === mood && isEligibleForPlayers(task, players),
+      (task) =>
+        task.enabled &&
+        task.mood === mood &&
+        isEligibleForPlayers(task, players, activePlayerIndex),
     );
 
     if (candidates.length === 0) {
@@ -45,6 +49,7 @@ export function selectOfferedRoundTasks(
   tasks: GameTask[],
   rounds: CustomRound[],
   players: [Player, Player],
+  activePlayerIndex: 0 | 1,
   recentlyOfferedRoundIds: string[],
 ): { offeredTasks: [GameTask, GameTask, GameTask]; roundId: string } {
   const taskMap = new Map(tasks.map((task) => [task.id, task]));
@@ -55,7 +60,12 @@ export function selectOfferedRoundTasks(
 
     return moodOrder.every((mood) => {
       const task = taskMap.get(round.taskIds[mood]);
-      return !!task && task.enabled && task.mood === mood && isEligibleForPlayers(task, players);
+      return (
+        !!task &&
+        task.enabled &&
+        task.mood === mood &&
+        isEligibleForPlayers(task, players, activePlayerIndex)
+      );
     });
   });
 
@@ -91,12 +101,19 @@ export function rememberOfferedRound(
   return [...recentlyOfferedRoundIds, roundId].slice(-maxRecentRoundIds);
 }
 
-function isEligibleForPlayers(task: GameTask, players: [Player, Player]): boolean {
+function isEligibleForPlayers(
+  task: GameTask,
+  players: [Player, Player],
+  activePlayerIndex: 0 | 1,
+): boolean {
   if (!task.eligibility?.allowedGenderPairings) {
     return true;
   }
 
-  const pairing = players.map((player) => player.gender);
+  const activePlayer = players[activePlayerIndex];
+  const partner = players[activePlayerIndex === 0 ? 1 : 0];
+  const pairing = [activePlayer.gender, partner.gender];
+
   return task.eligibility.allowedGenderPairings.some(
     ([firstGender, secondGender]) => firstGender === pairing[0] && secondGender === pairing[1],
   );

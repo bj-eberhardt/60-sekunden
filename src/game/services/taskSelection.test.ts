@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { getPlayableCatalog } from '../../catalog/repository/memoryCatalogRepository';
 import type { CustomRound } from '../../catalog/types';
-import type { Player } from '../types';
+import type { GameTask, Player } from '../types';
 import { selectOfferedRoundTasks, selectOfferedTasks } from './taskSelection';
 
 const players: [Player, Player] = [
@@ -11,7 +11,7 @@ const players: [Player, Player] = [
 
 describe('selectOfferedTasks', () => {
   it('offers exactly one task per mood', () => {
-    const offeredTasks = selectOfferedTasks(getPlayableCatalog(), players, []);
+    const offeredTasks = selectOfferedTasks(getPlayableCatalog(), players, 0, []);
 
     expect(offeredTasks).toHaveLength(3);
     expect(offeredTasks.map((task) => task.mood).sort()).toEqual([
@@ -23,7 +23,7 @@ describe('selectOfferedTasks', () => {
 
   it('prefers fresh tasks over recently offered tasks', () => {
     const recentTaskIds = ['closeness-eye-contact-1', 'flirty-kissing-1', 'intimate-touch-1'];
-    const offeredTasks = selectOfferedTasks(getPlayableCatalog(), players, recentTaskIds);
+    const offeredTasks = selectOfferedTasks(getPlayableCatalog(), players, 0, recentTaskIds);
 
     expect(offeredTasks.map((task) => task.id)).not.toContain('closeness-eye-contact-1');
     expect(offeredTasks.map((task) => task.id)).not.toContain('flirty-kissing-1');
@@ -32,7 +32,7 @@ describe('selectOfferedTasks', () => {
 
   it('falls back to a random task from the oldest candidates when all mood tasks are recent', () => {
     const catalog = getPlayableCatalog();
-    const offeredTasks = selectOfferedTasks(catalog, players, [
+    const offeredTasks = selectOfferedTasks(catalog, players, 0, [
       'closeness-eye-contact-1',
       'closeness-compliment-1',
       'closeness-conversation-1',
@@ -63,7 +63,7 @@ describe('selectOfferedTasks', () => {
       mood: 'closeness' as const,
       enabled: true,
     }));
-    const catalog = [
+    const catalog: GameTask[] = [
       ...closenessTasks,
       {
         id: 'flirty-1',
@@ -83,7 +83,7 @@ describe('selectOfferedTasks', () => {
       },
     ];
     const offeredTasks = Array.from({ length: 30 }, () =>
-      selectOfferedTasks(catalog, players, [
+      selectOfferedTasks(catalog, players, 0, [
         'closeness-1',
         'closeness-2',
         'closeness-3',
@@ -122,7 +122,7 @@ describe('selectOfferedTasks', () => {
         updatedAt: '2026-07-29T00:00:00.000Z',
       },
     ];
-    const selectedRound = selectOfferedRoundTasks(getPlayableCatalog(), rounds, players, []);
+    const selectedRound = selectOfferedRoundTasks(getPlayableCatalog(), rounds, players, 0, []);
 
     expect(selectedRound.roundId).toBe('round-1');
     expect(selectedRound.offeredTasks.map((task) => task.mood)).toEqual([
@@ -130,5 +130,51 @@ describe('selectOfferedTasks', () => {
       'flirty',
       'intimate',
     ]);
+  });
+
+  it('matches restricted tasks against active player and partner order', () => {
+    const catalog: GameTask[] = [
+      {
+        id: 'closeness-1',
+        version: 1,
+        title: 'Nähe',
+        text: 'Aufgabe',
+        mood: 'closeness' as const,
+        enabled: true,
+      },
+      {
+        id: 'flirty-1',
+        version: 1,
+        title: 'Flirt',
+        text: 'Aufgabe',
+        mood: 'flirty' as const,
+        enabled: true,
+      },
+      {
+        id: 'intimate-partner-male',
+        version: 1,
+        title: 'Partner männlich',
+        text: 'Aufgabe',
+        mood: 'intimate' as const,
+        enabled: true,
+        eligibility: { allowedGenderPairings: [['female', 'male']] },
+      },
+      {
+        id: 'intimate-active-male',
+        version: 1,
+        title: 'Aktiv männlich',
+        text: 'Aufgabe',
+        mood: 'intimate' as const,
+        enabled: true,
+        eligibility: { allowedGenderPairings: [['male', 'female']] },
+      },
+    ];
+    const mixedPlayers: [Player, Player] = [
+      { id: 'player-1', name: 'Spielerin', gender: 'female' },
+      { id: 'player-2', name: 'Spieler', gender: 'male' },
+    ];
+
+    expect(selectOfferedTasks(catalog, mixedPlayers, 0, [])[2].id).toBe('intimate-partner-male');
+    expect(selectOfferedTasks(catalog, mixedPlayers, 1, [])[2].id).toBe('intimate-active-male');
   });
 });

@@ -1,0 +1,716 @@
+{
+  "builtInCatalogVersion": 3,
+  "builtInTasks": [
+    {
+      "id": "closeness-eye-contact-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Nur ansehen",
+      "text": "Setzt euch bequem hin und schaut euch ruhig in die Augen. Sprecht erst wieder, wenn die Zeit vorbei ist.",
+      "mood": "closeness",
+      "hint": "Lächeln ist erlaubt. Wegschauen auch."
+    },
+    {
+      "id": "closeness-compliment-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Drei ehrliche Sätze",
+      "text": "Sag der anderen Person drei Dinge, die du gerade an ihr magst oder schätzt.",
+      "mood": "closeness"
+    },
+    {
+      "id": "closeness-conversation-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Ein schöner Moment",
+      "text": "Erzähle von einem gemeinsamen Moment, an den du gern zurückdenkst, und warum er dir wichtig ist.",
+      "mood": "closeness"
+    },
+    {
+      "id": "closeness-massage-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Ruhige Schultern",
+      "text": "Massiere für die Zeit sanft Schultern oder Nacken der anderen Person.",
+      "mood": "closeness",
+      "hint": "Frage kurz nach, welcher Druck angenehm ist."
+    },
+    {
+      "id": "flirty-kissing-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Langsamer Kuss",
+      "text": "Küsst euch langsam und spielerisch. Die aktive Person bestimmt Tempo und Pausen.",
+      "mood": "flirty"
+    },
+    {
+      "id": "flirty-touch-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Fingerspitzen",
+      "text": "Berühre Arm, Hand oder Rücken der anderen Person mit langsamen, leichten Bewegungen.",
+      "mood": "flirty",
+      "hint": "Bleibt bei Berührungen, die sich für euch beide passend anfühlen."
+    },
+    {
+      "id": "flirty-fantasy-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Ein Wunsch",
+      "text": "Beschreibe einen kleinen Wunsch für euren Abend, ohne dass daraus eine Verpflichtung entsteht.",
+      "mood": "flirty"
+    },
+    {
+      "id": "flirty-roleplay-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Neue Begegnung",
+      "text": "Tut für eine Minute so, als würdet ihr euch gerade erst kennenlernen und miteinander flirten.",
+      "mood": "flirty"
+    },
+    {
+      "id": "intimate-touch-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Nähe führen",
+      "text": "Die aktive Person führt die Hand der anderen Person zu einer Berührung, die gerade willkommen ist.",
+      "mood": "intimate",
+      "hint": "Jede Person kann jederzeit stoppen oder ändern."
+    },
+    {
+      "id": "intimate-kissing-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Intensiver küssen",
+      "text": "Küsst euch intensiver und achtet bewusst auf Atem, Tempo und Reaktionen.",
+      "mood": "intimate"
+    },
+    {
+      "id": "intimate-fantasy-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Mehr davon",
+      "text": "Sag leise, wovon du gerade mehr möchtest, und gib der anderen Person Raum, darauf zu reagieren.",
+      "mood": "intimate"
+    },
+    {
+      "id": "intimate-massage-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Warme Hände",
+      "text": "Massiere eine Stelle, die sich für euch beide passend und angenehm anfühlt.",
+      "mood": "intimate"
+    },
+    {
+      "id": "intimate-penis-kiss-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Penis küssen",
+      "text": "Küsse 60 Sekunden den Penis deines Partners.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["male", "male"],
+          ["female", "male"],
+          ["not-specified", "male"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-vagina-kiss-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Vagina küssen",
+      "text": "Küsse 60 Sekunden die Vagina deiner Partnerin.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["female", "female"],
+          ["male", "female"],
+          ["not-specified", "female"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-genitals-kiss-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Geschlechtsteil küssen",
+      "text": "Küsse 60 Sekunden das Geschlechtsteil deiner Partnerperson.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["not-specified", "not-specified"],
+          ["female", "not-specified"],
+          ["male", "not-specified"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-penis-hand-mouth-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Hand und Mund",
+      "text": "Verwöhne den Penis deines Partners mit Hand und Mund.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["male", "male"],
+          ["female", "male"],
+          ["not-specified", "male"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-vagina-hand-mouth-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Hand und Mund",
+      "text": "Verwöhne die Vagina deiner Partnerin mit Hand und Mund.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["female", "female"],
+          ["male", "female"],
+          ["not-specified", "female"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-genitals-hand-mouth-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Hand und Mund",
+      "text": "Verwöhne das Geschlechtsteil deiner Partnerperson mit Hand und Mund.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["not-specified", "not-specified"],
+          ["female", "not-specified"],
+          ["male", "not-specified"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-testicles-massage-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Hoden massieren",
+      "text": "Massiere sanft die Hoden deines Partners.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["male", "male"],
+          ["female", "male"],
+          ["not-specified", "male"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-breasts-stroke-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Brüste streicheln",
+      "text": "Streiche sanft über die Brüste deiner Partnerin.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["female", "female"],
+          ["male", "female"],
+          ["not-specified", "female"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-chest-explore-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Brust erkunden",
+      "text": "Erkunde Brust oder Oberkörper deiner Partnerperson mit Händen und Lippen.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["not-specified", "not-specified"],
+          ["female", "not-specified"],
+          ["male", "not-specified"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-penis-lick-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Langsam lecken",
+      "text": "Lecke langsam über den Penis deines Partners.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["male", "male"],
+          ["female", "male"],
+          ["not-specified", "male"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-vagina-lick-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Langsam lecken",
+      "text": "Lecke langsam über die Vagina deiner Partnerin.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["female", "female"],
+          ["male", "female"],
+          ["not-specified", "female"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-genitals-lick-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Langsam lecken",
+      "text": "Lecke langsam über das Geschlechtsteil deiner Partnerperson.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["not-specified", "not-specified"],
+          ["female", "not-specified"],
+          ["male", "not-specified"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-glans-tease-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Eichel reizen",
+      "text": "Reize die Eichel deines Partners sanft.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["male", "male"],
+          ["female", "male"],
+          ["not-specified", "male"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-clitoris-tease-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Klitoris reizen",
+      "text": "Reize die Klitoris deiner Partnerin sanft.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["female", "female"],
+          ["male", "female"],
+          ["not-specified", "female"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-penis-guide-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Zeigen lassen",
+      "text": "Lass deinen Partner dir zeigen, wie er am Penis berührt werden möchte.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["male", "male"],
+          ["female", "male"],
+          ["not-specified", "male"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-vagina-guide-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Zeigen lassen",
+      "text": "Lass deine Partnerin dir zeigen, wie sie an der Vagina berührt werden möchte.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["female", "female"],
+          ["male", "female"],
+          ["not-specified", "female"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-genitals-guide-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Zeigen lassen",
+      "text": "Lass deine Partnerperson dir zeigen, wie sie am Geschlechtsteil berührt werden möchte.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["not-specified", "not-specified"],
+          ["female", "not-specified"],
+          ["male", "not-specified"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-penis-rub-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Langsam reiben",
+      "text": "Setze dich auf deinen Partner und reibe dich langsam an seinem Penis.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["male", "male"],
+          ["female", "male"],
+          ["not-specified", "male"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-vagina-rub-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Langsam reiben",
+      "text": "Setze dich auf deine Partnerin und reibe dich langsam an ihrer Vagina.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["female", "female"],
+          ["male", "female"],
+          ["not-specified", "female"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-body-rub-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Langsam reiben",
+      "text": "Setze dich auf deine Partnerperson und reibe dich langsam an ihr.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["not-specified", "not-specified"],
+          ["female", "not-specified"],
+          ["male", "not-specified"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-breasts-circle-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Brüste umfahren",
+      "text": "Umfahre mit deinen Fingern die Brüste deiner Partnerin.",
+      "mood": "intimate",
+      "hint": "Beim Finale triff die Nippel.",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["female", "female"],
+          ["male", "female"],
+          ["not-specified", "female"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-chest-circle-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Brust umfahren",
+      "text": "Umfahre mit deinen Fingern Brust oder Oberkörper deiner Partnerperson.",
+      "mood": "intimate",
+      "hint": "Beim Finale triff die empfindlichste Stelle.",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["not-specified", "not-specified"],
+          ["female", "not-specified"],
+          ["male", "not-specified"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-dry-humping-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Trockensex",
+      "text": "Habe mit deiner Partnerin oder deinem Partner Trockensex.",
+      "mood": "intimate",
+      "hint": "Reibt euch bekleidet oder halb bekleidet aneinander, ohne Penetration."
+    },
+    {
+      "id": "intimate-penis-oil-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Massageöl am Penis",
+      "text": "Nimm Massageöl und verwöhne den Penis deines Partners.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["male", "male"],
+          ["female", "male"],
+          ["not-specified", "male"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-vagina-oil-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Massageöl an der Vagina",
+      "text": "Nimm Massageöl und verwöhne die Vagina deiner Partnerin.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["female", "female"],
+          ["male", "female"],
+          ["not-specified", "female"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-genitals-oil-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Massageöl am Geschlechtsteil",
+      "text": "Nimm Massageöl und verwöhne das Geschlechtsteil deiner Partnerperson.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["not-specified", "not-specified"],
+          ["female", "not-specified"],
+          ["male", "not-specified"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-chest-oil-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Massageöl an der Brust",
+      "text": "Nimm Massageöl und verwöhne Brust oder Oberkörper deiner Partnerperson.",
+      "mood": "intimate"
+    },
+    {
+      "id": "intimate-male-chest-nibble-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Brust verwöhnen",
+      "text": "Streichle und/oder knabbere an der Brust deines Partners.",
+      "mood": "intimate",
+      "eligibility": {
+        "allowedGenderPairings": [
+          ["male", "male"],
+          ["female", "male"],
+          ["not-specified", "male"]
+        ]
+      }
+    },
+    {
+      "id": "intimate-inner-thighs-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Innenseiten",
+      "text": "Massiere die Innenseiten der Oberschenkel und nähere dich langsam.",
+      "mood": "intimate"
+    },
+    {
+      "id": "intimate-eye-contact-touch-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Blick halten",
+      "text": "Halte Blickkontakt, während du deine Partnerperson intim berührst.",
+      "mood": "intimate"
+    },
+    {
+      "id": "intimate-fantasy-first-step-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Erster Schritt",
+      "text": "Flüstere eine sexuelle Fantasie und setze den ersten Schritt um.",
+      "mood": "intimate"
+    },
+    {
+      "id": "intimate-more-less-different-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Mehr, weniger, anders",
+      "text": "Eine Person beginnt mit einer intimen Berührung. Die andere darf nur mit \"mehr\", \"weniger\", \"langsamer\" oder \"anders\" steuern.",
+      "mood": "intimate"
+    },
+    {
+      "id": "closeness-smile-silence-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Still lächeln",
+      "text": "Schaut euch 60 Sekunden lang an und lächelt, ohne zu sprechen.",
+      "mood": "closeness"
+    },
+    {
+      "id": "closeness-first-flirt-memory-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Erster Flirt",
+      "text": "Haltet euch an den Händen und erinnert euch an euren ersten Flirt.",
+      "mood": "closeness"
+    },
+    {
+      "id": "closeness-compliment-exchange-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Komplimente tauschen",
+      "text": "Schenkt euch abwechselnd jeweils ein Kompliment.",
+      "mood": "closeness"
+    },
+    {
+      "id": "closeness-forehead-touch-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Stirn an Stirn",
+      "text": "Berührt eure Stirn aneinander und bleibt einen Moment ganz nah.",
+      "mood": "closeness"
+    },
+    {
+      "id": "flirty-last-attractive-moment-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Anziehender Moment",
+      "text": "Erzähle, wann du dein Gegenüber zuletzt besonders anziehend fandest.",
+      "mood": "flirty"
+    },
+    {
+      "id": "closeness-slow-arms-hands-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Gleichzeitig berühren",
+      "text": "Streicht euch gleichzeitig langsam über Arme oder Hände.",
+      "mood": "closeness"
+    },
+    {
+      "id": "flirty-whisper-compliment-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Ins Ohr",
+      "text": "Flüstere deinem Gegenüber ein ehrliches Kompliment ins Ohr.",
+      "mood": "flirty"
+    },
+    {
+      "id": "flirty-slow-kiss-minute-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Langsame Minute",
+      "text": "Küsst euch eine Minute lang besonders langsam.",
+      "mood": "flirty"
+    },
+    {
+      "id": "flirty-three-attractive-things-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Drei attraktive Dinge",
+      "text": "Sage drei Dinge, die du gerade attraktiv findest.",
+      "mood": "flirty"
+    },
+    {
+      "id": "flirty-neck-shoulders-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Nacken und Schultern",
+      "text": "Streiche deinem Gegenüber langsam über Nacken und Schultern.",
+      "mood": "flirty"
+    },
+    {
+      "id": "flirty-close-without-kiss-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Fast küssen",
+      "text": "Kommt euch ganz nah, ohne euch sofort zu küssen.",
+      "mood": "flirty"
+    },
+    {
+      "id": "closeness-beautiful-when-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Besonders schön",
+      "text": "Vervollständige: \"Ich finde es besonders schön, wenn du ...\"",
+      "mood": "closeness",
+      "hint": "Finde genug Beispiele in der Zeit."
+    },
+    {
+      "id": "flirty-three-kisses-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Drei Küsse",
+      "text": "Gib deinem Gegenüber drei verschiedene Küsse.",
+      "mood": "flirty"
+    },
+    {
+      "id": "flirty-face-hair-eyes-closed-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Augen geschlossen",
+      "text": "Eine Person schließt die Augen. Die andere berührt Gesicht und Haare.",
+      "mood": "flirty",
+      "hint": "Beendet die Minute mit einem langsamen Kuss."
+    },
+    {
+      "id": "flirty-close-dance-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Eng tanzen",
+      "text": "Tanzt 60 Sekunden eng zusammen, auch ohne Musik.",
+      "mood": "flirty"
+    },
+    {
+      "id": "flirty-forgotten-place-kiss-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Vergessene Stelle",
+      "text": "Küsse dein Gegenüber an einer Stelle, die im Alltag oft vergessen wird.",
+      "mood": "flirty"
+    },
+    {
+      "id": "flirty-seduce-without-words-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Blicke und Gesten",
+      "text": "Eine Person darf die andere 60 Sekunden lang nur mit Blicken und Gesten verführen.",
+      "mood": "flirty"
+    },
+    {
+      "id": "closeness-show-without-words-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Ohne Worte",
+      "text": "Zeige ohne Worte, dass du gerade Nähe möchtest.",
+      "mood": "closeness"
+    },
+    {
+      "id": "closeness-smile-whisper-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Zum Lächeln",
+      "text": "Flüstere einen Satz, der dein Gegenüber zum Lächeln bringen soll.",
+      "mood": "closeness"
+    },
+    {
+      "id": "flirty-attractive-clothing-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Attraktives Kleidungsstück",
+      "text": "Sage, welches Kleidungsstück du an deinem Gegenüber besonders attraktiv findest.",
+      "mood": "flirty"
+    },
+    {
+      "id": "flirty-first-meeting-play-1",
+      "version": 1,
+      "source": "built-in",
+      "title": "Gerade kennengelernt",
+      "text": "Spielt für eine Minute so, als würdet ihr euch gerade erst kennenlernen.",
+      "mood": "flirty"
+    }
+  ]
+}

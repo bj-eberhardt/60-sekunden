@@ -7,6 +7,9 @@ function App() {
     <RouterProvider>
       <GameProvider>
         <GameFlow />
+        <footer className="app-footer" data-testid="app-footer">
+          v{__APP_VERSION__}
+        </footer>
       </GameProvider>
     </RouterProvider>
   );

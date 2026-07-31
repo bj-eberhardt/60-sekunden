@@ -62,7 +62,7 @@ test('catalog index shows the original catalog and creates custom catalogs', asy
     await expect(byTestId(page, 'catalog-detail-page')).toBeVisible();
     expect(currentCatalogId(page)).not.toBe(originalCatalogId);
     await expect(byTestId(page, 'catalog-delete-button')).toHaveCount(0);
-    await expect(byTestId(page, /^task-row:[^:]+$/)).toHaveCount(12);
+    await expect(byTestId(page, /^task-row:[^:]+$/)).toHaveCount(65);
   });
 });
 

@@ -614,12 +614,18 @@ function drawTasks(state: GameSession): GameSession {
           playableTasks,
           activeCatalog.customRounds,
           state.players,
+          state.activePlayerIndex,
           state.recentlyOfferedRoundIds,
           state.gameMode,
         );
   const offeredTasks =
     roundSelection?.offeredTasks ??
-    selectOfferedTasks(playableTasks, state.players, state.recentlyOfferedTaskIds);
+    selectOfferedTasks(
+      playableTasks,
+      state.players,
+      state.activePlayerIndex,
+      state.recentlyOfferedTaskIds,
+    );
   const offeredRoundId = roundSelection?.roundId ?? null;
 
   return {
@@ -638,11 +644,18 @@ function selectRoundWithFallback(
   tasks: ReturnType<typeof getPlayableCatalog>,
   rounds: NonNullable<ReturnType<typeof getActiveCatalog>>['customRounds'],
   players: [Player, Player],
+  activePlayerIndex: 0 | 1,
   recentlyOfferedRoundIds: string[],
   gameMode: GameMode,
 ) {
   try {
-    return selectOfferedRoundTasks(tasks, rounds, players, recentlyOfferedRoundIds);
+    return selectOfferedRoundTasks(
+      tasks,
+      rounds,
+      players,
+      activePlayerIndex,
+      recentlyOfferedRoundIds,
+    );
   } catch (error) {
     if (gameMode === 'mixed') {
       return null;

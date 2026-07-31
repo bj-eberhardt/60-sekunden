@@ -1,0 +1,110 @@
+name: Master Release
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: master-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Build, Version, Tag, Release
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, 'chore(release)')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Setup project
+        uses: ./.github/actions/setup-node-project
+
+      - name: Increase version for release
+        run: |
+          npm version patch -m "chore(release): bump to %s"
+        env:
+          GIT_AUTHOR_NAME: GitHub Actions
+          GIT_AUTHOR_EMAIL: actions@github.com
+          GIT_COMMITTER_NAME: GitHub Actions
+          GIT_COMMITTER_EMAIL: actions@github.com
+
+      - name: Build
+        run: npm run build
+
+      - name: Pack build artifact
+        run: tar -czf dist.tar.gz dist
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v4
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Use new version
+        id: get-version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Pull with rebase before pushing
+        run: git pull --rebase origin master
+
+      - name: Tag and push Docker image
+        run: |
+          docker buildx build \
+            --platform linux/amd64,linux/arm64 \
+            -t "${{ secrets.DOCKERHUB_USERNAME }}/60-sekunden:latest" \
+            -t "${{ secrets.DOCKERHUB_USERNAME }}/60-sekunden:${{ steps.get-version.outputs.version }}" \
+            --push .
+
+      - name: Push version and tag
+        run: |
+          git push origin HEAD
+          git push origin --tags
+
+      - name: Create GitHub Release and upload artifact
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: v${{ steps.get-version.outputs.version }}
+          files: dist.tar.gz
+          generate_release_notes: true
+          name: Release ${{ steps.get-version.outputs.version }}
+
+      - name: Build GitHub Pages artifact
+        run: |
+          npm run build -- \
+            --base="/${{ github.event.repository.name }}/" \
+            --outDir=dist-pages
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./dist-pages
+
+  deploy-pages:
+    needs: release
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
