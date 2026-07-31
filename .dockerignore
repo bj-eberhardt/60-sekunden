@@ -1,0 +1,10 @@
+.git
+.idea
+.vscode
+node_modules
+dist
+playwright-report
+test-results
+npm-debug.log*
+Dockerfile*
+docker-compose*.yml
