@@ -24,7 +24,7 @@ export function TaskSelectionScreen() {
           onClick={() => navigate('/')}
         >
           <ArrowLeft aria-hidden="true" />
-          <span>Zurueck zum Start</span>
+          <span>Zurück zum Start</span>
         </button>
       </nav>
 
@@ -34,7 +34,7 @@ export function TaskSelectionScreen() {
           {activePlayer.name} ist dran
         </h1>
         <p className="selection-subtitle">
-          Waehle deine Aufgabe fuer die naechsten{' '}
+          Wähle deine Aufgabe für die nächsten{' '}
           <span className="selection-subtitle-emphasis">60 Sekunden</span>
         </p>
         <RoundProgress currentRound={state.turnNumber} targetRounds={state.targetRounds} />
@@ -60,7 +60,7 @@ export function TaskSelectionScreen() {
                 navigate('/task');
               }}
             >
-              Auswaehlen
+              Auswählen
             </button>
           </article>
         ))}

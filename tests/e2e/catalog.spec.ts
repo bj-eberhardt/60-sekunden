@@ -231,9 +231,7 @@ test('Originalkatalog tasks can be overridden but not deleted', async ({ page })
   await test.step('Override a built-in task through the edit form', async () => {
     await byTestId(page, taskRowEditTestId(firstBuiltInTaskId)).click();
     await byTestId(page, 'task-title-input').fill('E2E Original Override');
-    await byTestId(page, 'task-text-input').fill(
-      'Dieser Text ueberschreibt eine Built-in-Aufgabe.',
-    );
+    await byTestId(page, 'task-text-input').fill('Dieser Text überschreibt eine Built-in-Aufgabe.');
     await byTestId(page, 'task-submit-button').click();
 
     await expect(byTestId(page, taskRowTestId(firstBuiltInTaskId))).toBeVisible();
@@ -355,7 +353,7 @@ test('catalog edits persist across reloads', async ({ page }) => {
     catalogId = await createCustomCatalog(page, 'E2E Persist Catalog');
     taskId = await createCustomTask(page, {
       title: 'E2E Persist Task',
-      text: 'Diese Aufgabe prueft Persistenz.',
+      text: 'Diese Aufgabe prüft Persistenz.',
       mood: 'closeness',
     });
     await waitForPersistedCatalogName(page, catalogId, 'E2E Persist Catalog');
@@ -588,7 +586,7 @@ function createValidCatalogExport(
           version: 1,
           source: 'custom',
           title: 'Importierte E2E Aufgabe',
-          text: 'Diese Aufgabe wird ueber einen Playwright-Dateiupload importiert.',
+          text: 'Diese Aufgabe wird über einen Playwright-Dateiupload importiert.',
           mood: 'closeness',
           enabled: true,
           createdAt: '2026-07-29T00:00:00.000Z',

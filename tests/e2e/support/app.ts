@@ -62,7 +62,7 @@ export async function createCustomTask(
   page: Page,
   task = {
     title: 'E2E Aufgabe',
-    text: 'Eine Aufgabe, die nur fuer den E2E-Test existiert.',
+    text: 'Eine Aufgabe, die nur für den E2E-Test existiert.',
     mood: 'flirty',
   },
 ) {
@@ -386,7 +386,7 @@ export async function seedMissingCatalogGameState(page: Page, phase: MissingCata
         id: 'missing-catalog-task-1',
         version: 1,
         title: 'E2E Missing Catalog Task',
-        text: 'eine Aufgabe aus einem geloeschten Katalog.',
+        text: 'eine Aufgabe aus einem gelöschten Katalog.',
         mood: 'closeness',
         enabled: true,
       };
@@ -691,8 +691,8 @@ const seededTasks = [
     id: 'intimate-touch-1',
     version: 1,
     source: 'built-in',
-    title: 'Naehe fuehren',
-    text: 'Die aktive Person fuehrt eine Beruehrung.',
+    title: 'Nähe führen',
+    text: 'Die aktive Person führt eine Berührung.',
     mood: 'intimate',
     enabled: true,
   },

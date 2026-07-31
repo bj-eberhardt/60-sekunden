@@ -81,13 +81,13 @@ Produktions-Artefakt gebaut und statisch ausgeliefert; es wird kein Vite-Dev-Ser
 - App: `http://localhost:8088`
 - Playwright UI: `http://localhost:9324`
 
-Alle E2E-Tests ausfuehren:
+Alle E2E-Tests ausführen:
 
 ```bash
 npm run e2e
 ```
 
-Eine einzelne Testdatei oder Playwright-Optionen koennen nach `--` weitergereicht werden:
+Eine einzelne Testdatei oder Playwright-Optionen können nach `--` weitergereicht werden:
 
 ```bash
 npm run e2e -- tests/e2e/catalog.spec.ts
@@ -105,8 +105,8 @@ Die UI bindet im Container an `0.0.0.0:9324`, damit sie vom Host aus erreichbar 
 Netzwerken kann dieser Port je nach Docker-/Firewall-Konfiguration auch von anderen Maschinen aus
 sichtbar sein.
 
-Neue E2E-Tests muessen die Regeln in [`docs/PLAYWRIGHT_E2E_AGENT_GUIDE.md`](AGENTS.md)
-einhalten. Insbesondere werden UI-Elemente ueber `data-testid` angesprochen, nicht ueber Texte oder
+Neue E2E-Tests müssen die Regeln in [`docs/PLAYWRIGHT_E2E_AGENT_GUIDE.md`](AGENTS.md)
+einhalten. Insbesondere werden UI-Elemente über `data-testid` angesprochen, nicht über Texte oder
 CSS-Klassen.
 
 ## Git-Hook
@@ -131,7 +131,7 @@ npm run dev          # Entwicklungsserver
 npm run dev:docker   # Docker-Entwicklungsserver
 npm run dev:docker:install # Dependencies im laufenden Docker-Dev-Container installieren
 npm run dev:docker:fresh   # Docker-Dev-Volume löschen und Container frisch starten
-npm run e2e          # Playwright-E2E-Tests im Docker-E2E-Stack ausfuehren
+npm run e2e          # Playwright-E2E-Tests im Docker-E2E-Stack ausführen
 npm run e2e:ui       # Playwright UI im Docker-E2E-Stack starten
 npm run build        # TypeScript prüfen und Produktions-Build erzeugen
 npm run preview      # Produktions-Build lokal ansehen

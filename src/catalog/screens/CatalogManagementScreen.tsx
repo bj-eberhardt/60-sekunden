@@ -345,7 +345,7 @@ export function CatalogManagementScreen() {
     return (
       <main className="app-shell catalog-index-shell" data-testid="catalog-index-page">
         <CatalogBackButton
-          label="Zurueck zum Start"
+          label="Zurück zum Start"
           testId="catalog-back-to-home"
           onClick={() => navigate('/')}
         />
@@ -498,7 +498,7 @@ export function CatalogManagementScreen() {
     <main className="app-shell catalog-detail-shell" data-testid="catalog-detail-page">
       {!isTaskEditScreen ? (
         <CatalogBackButton
-          label="Zurueck zur Uebersicht"
+          label="Zurück zur Übersicht"
           testId="catalog-back-to-index"
           onClick={() => navigate('/catalog')}
         />
@@ -585,9 +585,9 @@ export function CatalogManagementScreen() {
                 Aktiviert
               </label>
               <details className="eligibility-editor" data-testid="task-eligibility-details">
-                <summary>Eignung einschraenken</summary>
+                <summary>Eignung einschränken</summary>
                 <p className="field-help">
-                  Ohne Auswahl ist die Aufgabe fuer alle Paarungen geeignet.
+                  Ohne Auswahl ist die Aufgabe für alle Paarungen geeignet.
                 </p>
                 <div className="pairing-grid">
                   {genderOptions.flatMap((firstGender) =>
@@ -640,10 +640,10 @@ export function CatalogManagementScreen() {
                     type="button"
                     onClick={startTaskCreation}
                   >
-                    Aufgabe hinzufuegen
+                    Aufgabe hinzufügen
                   </button>
                 }
-                ariaLabel="Aufgaben im ausgewaehlten Katalog"
+                ariaLabel="Aufgaben im ausgewählten Katalog"
                 title="Aufgaben"
               >
                 <div className="custom-task-list" role="list">
@@ -863,7 +863,7 @@ function normalizeTaskEligibility(
 }
 
 function getPendingDeleteTitle() {
-  return 'Aufgabe wirklich loeschen?';
+  return 'Aufgabe wirklich löschen?';
 }
 
 function getPendingDeleteDescription(pendingDelete: PendingDelete | null) {
@@ -872,10 +872,10 @@ function getPendingDeleteDescription(pendingDelete: PendingDelete | null) {
   }
 
   if (pendingDelete.type === 'built-in-task') {
-    return `Die Originalaufgabe "${pendingDelete.task.title}" wird nicht geloescht, sondern im Originalkatalog deaktiviert.`;
+    return `Die Originalaufgabe "${pendingDelete.task.title}" wird nicht gelöscht, sondern im Originalkatalog deaktiviert.`;
   }
 
-  return `Die Aufgabe "${pendingDelete.task.title}" wird geloescht.`;
+  return `Die Aufgabe "${pendingDelete.task.title}" wird gelöscht.`;
 }
 
 function getPendingDeleteConfirmLabel(pendingDelete: PendingDelete | null) {
@@ -883,7 +883,7 @@ function getPendingDeleteConfirmLabel(pendingDelete: PendingDelete | null) {
     return 'Aufgabe deaktivieren';
   }
 
-  return 'Aufgabe loeschen';
+  return 'Aufgabe löschen';
 }
 
 function getCatalogIdFromRoute(route: string) {

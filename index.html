@@ -5,8 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Skeleton-Projekt für das Paarspiel 60 Sekunden mit React, TypeScript und Vite."
+      content="60 Sekunden ist ein lokales Paarspiel als Mini-Webapp: zieht Aufgaben, spielt kurze Runden und entdeckt in 60 Sekunden neue Gespräche, Nähe und Feedback."
     />
+    <meta
+      name="keywords"
+      content="60 Sekunden, Paarspiel, Beziehungsspiel, Webapp, Mini-Spiel, Aufgaben, Runden, Timer"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="application-name" content="60 Sekunden" />
+    <meta name="apple-mobile-web-app-title" content="60 Sekunden" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="60 Sekunden" />
+    <meta property="og:title" content="60 Sekunden - Paarspiel als Mini-Webapp" />
+    <meta
+      property="og:description"
+      content="Kurze Aufgaben, ein 60-Sekunden-Timer und Feedback-Runden für ein spielerisches Erlebnis zu zweit."
+    />
+    <meta property="og:image" content="/android-icon-192x192.png" />
+    <meta property="og:image:alt" content="60 Sekunden App-Icon" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="60 Sekunden - Paarspiel als Mini-Webapp" />
+    <meta
+      name="twitter:description"
+      content="Ein lokales Mini-Spiel für zwei Personen mit Aufgaben, Countdown und Feedback."
+    />
+    <meta name="twitter:image" content="/android-icon-192x192.png" />
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
@@ -21,10 +48,47 @@
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/manifest.json" />
-    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileColor" content="#070611" />
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#070611" />
     <title>60 Sekunden</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebApplication",
+            "name": "60 Sekunden",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Web",
+            "inLanguage": "de",
+            "isAccessibleForFree": true,
+            "description": "60 Sekunden ist ein lokales Paarspiel als Mini-Webapp mit Aufgaben, Countdown und Feedback-Runden.",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          },
+          {
+            "@type": "Game",
+            "name": "60 Sekunden",
+            "numberOfPlayers": {
+              "@type": "QuantitativeValue",
+              "minValue": 2,
+              "maxValue": 2
+            },
+            "playMode": "MultiPlayer",
+            "gamePlatform": "Web browser",
+            "audience": {
+              "@type": "PeopleAudience",
+              "requiredMinAge": 18
+            },
+            "description": "Ein kurzes Paarspiel für zwei Erwachsene mit Aufgaben, 60-Sekunden-Runden und gemeinsamem Feedback."
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
