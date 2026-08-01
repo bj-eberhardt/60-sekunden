@@ -1,0 +1,10 @@
+name: 60-sekunden
+services:
+  app:
+    image: beberhardt/60-sekunden:${SECHZIG_SEKUNDEN_TAG:-latest}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - '${SECHZIG_SEKUNDEN_PORT:-8080}:80'

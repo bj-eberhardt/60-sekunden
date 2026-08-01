@@ -4,6 +4,8 @@ import type { AppRoute } from '../../shared/router';
 import { useRouter } from '../../shared/router';
 import { useGame } from '../state/useGame';
 import type { GamePhase } from '../types';
+import homeTitleAvif from '../../assets/sixty-seconds-slogan.avif';
+import homeTitleWebp from '../../assets/sixty-seconds-slogan.webp';
 
 export function HomeScreen() {
   const { clearGameState, persistenceNotice, persistenceReady, state } = useGame();
@@ -14,10 +16,15 @@ export function HomeScreen() {
   const openRounds = Math.max(state.targetRounds - state.turnNumber + 1, 0);
 
   return (
-    <main className="app-shell setup-shell" data-testid="home-page">
+    <main className="app-shell setup-shell home-shell" data-testid="home-page">
       <section className="screen-panel" aria-labelledby="home-title">
         <p className="eyebrow">Start</p>
-        <h1 id="home-title">60 Sekunden</h1>
+        <h1 className="home-title" id="home-title">
+          <picture>
+            <source srcSet={homeTitleAvif} type="image/avif" />
+            <img className="home-title-image" src={homeTitleWebp} alt="60 Sekunden" />
+          </picture>
+        </h1>
         {persistenceNotice ? (
           <p className="status-note" role="status">
             {persistenceNotice}
