@@ -1356,6 +1356,17 @@ textarea {
   flex: 0 1 auto;
 }
 
+.section-title-row .primary-action {
+  min-height: 2.75rem;
+  padding-inline: 1rem;
+  background: linear-gradient(135deg, #641b33, #8b2745);
+  color: var(--color-cream);
+}
+
+.section-title-row .primary-action:hover {
+  background: linear-gradient(135deg, #76213c, #a82e4d);
+}
+
 .modal-backdrop {
   position: fixed;
   z-index: 20;
