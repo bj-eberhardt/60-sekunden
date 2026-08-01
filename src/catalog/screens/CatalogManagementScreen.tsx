@@ -343,7 +343,10 @@ export function CatalogManagementScreen() {
 
   if (routeCatalogId === null) {
     return (
-      <main className="app-shell catalog-index-shell" data-testid="catalog-index-page">
+      <main
+        className="app-shell catalog-index-shell pair-art-shell"
+        data-testid="catalog-index-page"
+      >
         <CatalogBackButton
           label="Zurück zum Start"
           testId="catalog-back-to-home"
@@ -495,7 +498,10 @@ export function CatalogManagementScreen() {
   }
 
   return (
-    <main className="app-shell catalog-detail-shell" data-testid="catalog-detail-page">
+    <main
+      className={`app-shell catalog-detail-shell pair-art-shell${isTaskEditScreen ? ' catalog-task-edit-shell' : ''}`}
+      data-testid="catalog-detail-page"
+    >
       {!isTaskEditScreen ? (
         <CatalogBackButton
           label="Zurück zur Übersicht"

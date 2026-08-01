@@ -41,6 +41,7 @@ body {
     radial-gradient(circle at 78% 12%, rgb(255 138 111 / 20%), transparent 23rem),
     radial-gradient(circle at 18% 22%, rgb(255 95 123 / 18%), transparent 19rem),
     linear-gradient(135deg, var(--color-void) 0%, var(--color-night) 42%, #2b0c24 100%);
+  background-attachment: fixed;
 }
 
 .visually-hidden {
@@ -134,6 +135,63 @@ select:focus-visible {
   place-items: center;
 }
 
+.home-shell,
+.pair-art-shell {
+  width: 100%;
+  max-width: none;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.home-shell > .screen-panel {
+  position: relative;
+  z-index: 1;
+}
+
+.pair-art-shell > .screen-header,
+.pair-art-shell > .screen-panel,
+.pair-art-shell > .catalog-back-nav,
+.pair-art-shell > .management-layout,
+.pair-art-shell > .sticky-save-bar {
+  position: relative;
+  z-index: 1;
+}
+
+@media (width < 1100px) {
+  .home-shell::after,
+  .pair-art-shell::after {
+    position: absolute;
+    top: 0.2rem;
+    right: -1.5rem;
+    z-index: 0;
+    width: max(400px, 59%);
+    aspect-ratio: 973 / 790;
+    pointer-events: none;
+    content: '';
+    background: image-set(
+        url('./assets/pair.avif') type('image/avif'),
+        url('./assets/pair.webp') type('image/webp')
+      )
+      center / contain no-repeat;
+  }
+}
+
+@media (width >= 1100px) {
+  .home-shell::after,
+  .pair-art-shell::after {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    content: '';
+    background: image-set(
+        url('./assets/home-background.avif') type('image/avif'),
+        url('./assets/home-background.webp') type('image/webp')
+      )
+      center / cover no-repeat;
+  }
+}
+
 .catalog-index-shell {
   display: grid;
   align-content: center;
@@ -150,12 +208,19 @@ select:focus-visible {
   display: grid;
   align-content: start;
   justify-items: center;
+  background:
+    radial-gradient(circle at 78% 8%, rgb(255 138 111 / 18%), transparent 21rem),
+    radial-gradient(circle at 18% 10%, rgb(255 95 123 / 16%), transparent 18rem);
 }
 
 .catalog-detail-shell > .screen-header,
 .catalog-detail-shell > .management-layout,
 .catalog-detail-shell > .catalog-back-nav {
   width: min(100%, 42rem);
+}
+
+.catalog-task-edit-shell > .screen-header {
+  margin-top: 3.75rem;
 }
 
 .catalog-detail-shell .catalog-detail {
@@ -225,6 +290,17 @@ h1 {
   letter-spacing: 0;
   line-height: 1;
   text-shadow: 0 0 1.4rem rgb(255 95 123 / 22%);
+}
+
+.home-title {
+  line-height: 0;
+}
+
+.home-title-image {
+  display: block;
+  width: min(100%, 28rem);
+  height: auto;
+  margin-inline: auto;
 }
 
 h2 {
@@ -1278,6 +1354,17 @@ textarea {
 
 .section-title-row button {
   flex: 0 1 auto;
+}
+
+.section-title-row .primary-action {
+  min-height: 2.75rem;
+  padding-inline: 1rem;
+  background: linear-gradient(135deg, #641b33, #8b2745);
+  color: var(--color-cream);
+}
+
+.section-title-row .primary-action:hover {
+  background: linear-gradient(135deg, #76213c, #a82e4d);
 }
 
 .modal-backdrop {
