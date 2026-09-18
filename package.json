@@ -31,14 +31,14 @@
     "@fontsource/cormorant-garamond": "^5.3.0",
     "@fontsource/manrope": "^5.3.0",
     "lucide-react": "^1.43.0",
-    "react": "19.2.8",
+    "react": "19.3.0",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@playwright/test": "^1.63.0",
     "@types/node": "^26.5.0",
-    "@types/react": "19.2.18",
+    "@types/react": "19.3.0",
     "@types/react-dom": "19.2.7",
     "@vitejs/plugin-react": "6.1.1",
     "eslint": "10.10.0",
